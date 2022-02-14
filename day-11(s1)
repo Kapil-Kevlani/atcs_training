@@ -1,0 +1,152 @@
+package libraryy;
+
+import java.util.ArrayList;
+
+public class ArrryyLst {
+	public static void main(String[] args) {
+		ArrayList al = new ArrayList();
+		al.add("kapil");
+		al.add(23);
+		al.add(47.0f);
+		System.out.println(al);
+	}
+
+}
+----------------------------
+2.
+package libraryy;
+import java.util.LinkedList;
+
+
+
+public class Test2 {
+	public static void main(String[] args) {
+		LinkedList li = new LinkedList();
+		li.add("jimmy");
+		li.add(34);
+		li.add(true);
+		li.add(32.5f);
+		System.out.println("size of ll is: "+li.size());
+		System.out.println("do this list contains jimmy?: "+li.contains("jimmy"));
+		System.out.println("is this list empty: "+li.isEmpty());
+		System.out.println("the first element is: "+li.getFirst());
+	}
+
+}
+----------------------------
+3. package libraryy;
+
+import java.util.LinkedList;
+public class LinkedListEx {
+	public static void main(String[] args) {
+		LinkedList li = new LinkedList();
+		li.add(123);
+		li.add("kapil");
+		li.add("y");
+		li.add(true);
+		System.out.println("size is"+li.size());
+		System.out.println("list contains kapil"+li.contains("kapil"));
+		System.out.println("get first element"+li.getFirst());
+		System.out.println("last element is"+li.getLast());
+		System.out.println("list is empty or not"+li.isEmpty());
+		System.out.println("to remove"+li.remove());
+		System.out.println("size is"+li.size());
+		System.out.println("all elemets are :"+li);
+		
+
+}
+}
+---------------------------------
+4.package libraryy;
+
+import java.util.LinkedList;
+
+public class testt {
+	public static void main(String[] args) {
+		LinkedList li = new LinkedList();
+		li.add("travis");
+		li.add(23);
+		li.add(23.5f);
+		li.add(null);
+		li.add(true);
+		System.out.println("for loop");
+		for(int i = 0;i<li.size();i++) {
+			System.out.println(li.get(i));
+		}
+		System.out.println("for-each loop");
+		for(Object o:li) {
+			System.out.println(o);
+		}
+	}
+
+}
+-----------------
+5.
+package libraryy;
+import java.util.ArrayList;
+
+public class evennumber {
+	public static void main(String[] args) {
+		ArrayList al = new ArrayList();
+		for(int i =0;i<10;i++) {
+			al.add(i);
+		}
+		for(Object o:al) {
+			Integer i = (Integer) o;
+			if(i%2==0) {
+				System.out.println(i);
+			}
+		}
+	}
+
+}
+----------------
+6.package libraryy;
+
+import java.util.LinkedList;
+
+public class testt {
+	public static void main(String[] args) {
+		LinkedList li = new LinkedList();
+		li.add("travis");
+		li.add(23);
+		li.add(23.5f);
+		li.add(null);
+		li.add(true);
+		System.out.println("for loop");
+		for(int i = 0;i<li.size();i++) {
+			System.out.println(li.get(i));
+		}
+		System.out.println("for-each loop");
+		for(Object o:li) {
+			System.out.println(o);
+		}
+	}
+
+}
+----------------
+7.
+package libraryy;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+public class ItratorEx {
+	public static void main(String[] args) {
+	ArrayList<String> al = new ArrayList();
+	al.add("travis");
+	al.add("kendrick");
+	al.add("j.cole");
+	al.add("weeknd");
+	al.add("kanye");
+	System.out.println(al);
+	System.out.println("FORWARD DIRECTION");
+	ListIterator li = al.listIterator();
+	while(li.hasNext()) {
+		System.out.println(li.next());
+	}
+	while(li.hasPrevious()) {
+		System.out.println("the backward list is :"+li.previous());
+	}
+	}
+
+}
