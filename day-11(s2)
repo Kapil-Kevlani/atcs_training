@@ -1,0 +1,87 @@
+q1.
+package libraryy;
+import java.util.PriorityQueue;
+import java.util.Iterator;
+
+
+public class priorityQueueEx {
+	public static void main(String[] args) {
+		PriorityQueue<String> pq = new PriorityQueue<>();
+		pq.add("dennis");
+		pq.add("op");
+		pq.add("low");
+		 Iterator iterator = pq.iterator();
+		System.out.println(pq);
+	}
+
+}
+q2.
+package libraryy;
+import java.util.*;
+
+public class HashSetEx {
+	public static void main(String[] args) {
+		HashSet hs =new HashSet();
+		hs.add("system");
+		hs.add(21);
+		hs.add("hope");
+		Iterator itr = hs.iterator();
+		while(itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+		
+	}
+	
+
+}
+q3.
+package libraryy;
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetEx {
+	public static void main(String[] args) {
+		LinkedHashSet hs = new LinkedHashSet();
+		hs.add("hhh");
+		hs.add("nope");
+		hs.add("look at me");
+		hs.add(54);
+		hs.add(256.5);
+		
+		
+		//to perform differnt functions are
+		System.out.println("all elements: "+hs);
+		System.out.println("to remove first element "+hs.remove(54));
+		System.out.println("current size is: "+hs.size());
+		System.out.println(hs);
+	 
+	}
+	
+
+}
+q4.
+package libraryy;
+import java.util.*;
+ 
+// Main class
+class TreeSetEx {
+ 
+    // Main driver method
+    public static void main(String[] args)
+    {
+        // Creating a Set interface with reference to
+        // TreeSet
+        Set<String> ts1 = new TreeSet<>();
+ 
+        // Elements are added using add() method
+        ts1.add("A");
+        ts1.add("B");
+        ts1.add("C");
+ 
+        // Duplicates will not get insert
+        ts1.add("C");
+ 
+        // Elements get stored in default natural
+        // Sorting Order(Ascending)
+        System.out.println(ts1);
+    }
+}
