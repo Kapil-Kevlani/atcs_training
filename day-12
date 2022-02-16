@@ -1,0 +1,174 @@
+q1.
+package libraryy;
+import java.util.*;
+
+public class HashSetEx {
+	public static void main(String[] args) {
+		HashSet hs =new HashSet();
+		for(int i =0;i<10;i++) {
+			hs.add(i);
+		}
+		hs.add("system");
+		hs.add(21);
+		hs.add("hope");
+		Iterator itr = hs.iterator();
+		while(itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+		
+	}
+	
+
+}
+=================
+q2.
+package libraryy;
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetEx {
+	public static void main(String[] args) {
+		LinkedHashSet hs = new LinkedHashSet();
+		for(int i =0;i<10;i++) {
+			hs.add(i);
+		}
+		hs.add("hhh");
+		hs.add("nope");
+		hs.add("look at me");
+		hs.add(54);
+		hs.add(256.5);
+		
+		
+		//to perform differnt functions are
+		System.out.println("all elements: "+hs);
+		System.out.println("to remove first element "+hs.remove(54));
+		System.out.println("current size is: "+hs.size());
+		System.out.println(hs);
+	 
+	}
+	
+
+}
+===================
+q3.
+package libraryy;
+import java.util.*;
+
+public class Elements {
+public static void main(String[] args) {
+	HashSet hs = new HashSet();
+	hs.add("bb");
+	hs.add("phinominal");
+	hs.add(32);
+	Iterator itr = hs.iterator();
+	while(itr.hasNext()) {
+		System.out.println(itr.next());
+	}
+}
+}
+=================
+q4.package libraryy;
+import java.util.*;
+
+public class LHSElements {
+public static void main(String[] args) {
+	LinkedHashSet lhs = new LinkedHashSet();
+	lhs.add("jambera");
+	lhs.add("turkey");
+	lhs.add("Khajakistan");
+	Iterator itr = lhs.iterator();
+	while(itr.hasNext()) {
+		System.out.println(itr.next());
+	}
+
+}
+}
+======================
+q6. package libraryy;
+import java.util.*;
+
+public class keysetEx {
+	public static void main(String[] args) {
+		
+		TreeMap<Integer,String> tm= new TreeMap();
+		
+		tm.put(111, "ramesh");
+		tm.put(112, "sai");
+		tm.put(114, "harish");
+		tm.put(116, "mahesh");
+		tm.put(119, "amender");
+		System.out.println(tm);
+		
+		Set<Integer> keys=tm.keySet();
+		
+		Iterator itr=keys.iterator();
+		
+		while(itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+		
+	}
+	}
+======================
+q7.
+package libraryy;
+import java.util.*;
+import java.util.Map.Entry;
+
+
+public class EntrySetEx {
+public static void main(String[] args) {
+	TreeMap<Integer, String> tm = new TreeMap();
+	tm.put(111, "ramesh");
+	tm.put(171, "divya");
+	tm.put(181, "ammulu");
+	tm.put(141, "janu");
+	
+	System.out.println(tm);
+	Set<Entry<Integer,String>>result=tm.entrySet();
+	Iterator itr=result.iterator();
+	
+	while(itr.hasNext()) {
+		System.out.println(itr.next());
+	}
+	
+}
+}
+==================
+q8.
+package libraryy;
+import java.util.*;
+import java.util.HashMap;
+
+public class HashMapEx {
+public static void main(String[] args) {
+	HashMap<Integer, String> hm = new HashMap<>();
+	hm.put(101, "null");
+	hm.put(102, "nulll");
+	hm.put(103, "nul");
+	hm.put(104, "nll");
+	hm.put(105, "ull");
+	System.out.println(hm.containsKey(101));
+	System.out.println(hm.remove(105));
+	System.out.println(hm.size());
+}
+}
+====================
+q9.
+package libraryy;
+import java.util.*;
+import java.util.LinkedHashMap;
+
+public class LinkedHashMapEx {
+	public static void main(String[] args) {
+		LinkedHashMap<Integer, String> obj = new LinkedHashMap<>();
+		obj.put(101, "null");
+		obj.put(102, "nulll");
+		obj.put(103, "nul");
+		obj.put(104, "nll");
+		obj.put(105, "ull");
+		
+		System.out.println(obj.isEmpty());
+		System.out.println(obj);
+	}
+
+}
