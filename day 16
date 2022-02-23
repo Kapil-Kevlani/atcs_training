@@ -1,0 +1,134 @@
+
+------Ques1----
+Working with Lambda & Lambda Block
+interface Lambda{
+	public void hello();
+}
+public class LambdaEx {
+	
+	public static void main(String[] args) {
+	Lambda l=()->System.out.println("--Helloo--");	
+	l.hello();
+	}
+
+}
+
+-------Ques2-----
+Create a Runnable interface and apply lamda expression.
+public class LambdaRunnable {
+public static void main(String[] args) {
+	Runnable r=()->System.out.println("Implementing Lambda in Runnable");
+	Thread t=new Thread(r);
+	t.start();
+}
+}
+
+-----Ques3-----
+Create a class SqureRoot apply lamdaexpreesions.
+interface SquareRoot{
+	public void sqRoot(int n);
+}
+public class LambdaEx1 {
+public static void main(String[] args) {
+	SquareRoot sqr=(n)->System.out.println("Square root is"+Math.sqrt(n));
+	sqr.sqRoot(49);
+}
+}
+
+-------Ques4-----
+Create a class with addition method with parameters.
+interface Addition{
+	public int add(int a,int b); 
+}
+public class LambdaEx2 {
+ public static void main(String[] args) {
+	Addition ad=(int a,int b)->a+b;
+	System.out.println(ad.add(12,10));
+}
+}
+-----Ques5-----
+Create a ArrayList class add values apply lamda expression.
+import java.util.ArrayList;
+
+interface ArrList{
+	public void print();
+}
+public class LambdaEx3 {
+public static void main(String[] args) {
+	ArrayList a=new ArrayList();
+	a.add(1);
+	a.add(3);
+	a.add(4);
+	a.add(0);
+	ArrList ar=()->System.out.println(a);
+	ar.print();
+}
+}
+                                                --*--*--*--Session 2--*--*--*--
+						
+----Ques1----
+Take predicate functional interface test given value even number or not.
+import java.util.function.*;
+public class  PredicateEx {
+public static void main(String[] args) {
+	Predicate <Integer> p=i->i%2==0;
+	if (p.test(45))
+		System.out.println("It is even");
+	else 
+		System.out.println("It is odd");
+}
+}
+
+----Ques2-----
+Take predicate functional interface test length of the given name is greater than 6 or not?
+import java.util.function.Predicate;
+
+public class PredicateEx1 {
+public static void main(String[] args) {
+	Predicate <String> p=i->i.length()<6;
+	if(p.test("JavaFeatures"))
+		System.out.println("Length is less than 6");
+	else
+		System.out.println("Length is greater than 6");
+}
+}
+
+-----Ques3-------
+Create a employee class with ArrayList class add key value pair name,salary, findout salary>7000?
+import java.util.function.Predicate;
+
+import java.util.ArrayList;
+class EmployeeSal{
+	int empSalary;
+	String empName;
+	public EmployeeSal(String empName,int empSalary) {
+		super();
+		this.empSalary = empSalary;
+		this.empName = empName;
+	}
+	//@Override
+	public String toString() {
+		return "EmployeeSal [empSalary=" + empSalary + ", empName=" + empName + "]";
+	}
+	public int getEmpSalary() {
+		return empSalary;
+	}
+	public void setEmpSalary(int empSalary) {
+		this.empSalary = empSalary;
+	}
+	
+}
+public class EmpArrayList {
+public static void main(String[] args) {
+	ArrayList <EmployeeSal> a=new ArrayList<EmployeeSal>();
+	
+	a.add(new EmployeeSal("John",3008));
+	a.add(new EmployeeSal("Sam",10000));
+	a.add(new EmployeeSal("Marry",12000));
+	for(EmployeeSal es:a) {
+		Predicate<Integer> p=i->es.getEmpSalary()>7000;
+		if(p.test(es.getEmpSalary()))
+	        System.out.println(es.getEmpSalary());
+	}
+}
+}
