@@ -1,0 +1,71 @@
+Implementation of Prepared statement :
+
+1.	create a class with end-user implementation scanner class, username and password matching or not otherwise it will give an error.
+
+
+
+package com.JDBC;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+
+public class PreparedEx {
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter your username");
+		String uname=sc.next();
+		System.out.println("Enter your password");
+		String pwd=sc.next();
+		
+
+        Class.forName("org.postgresql.Driver");
+
+	 
+
+        Connection conn=DriverManager.getConnection("jdbc:postgresql://localhost/niharika1","postgres","niharika");
+
+
+
+             PreparedStatement stmt=conn.prepareStatement("select * from user1 where uname=? and userpwd=?");
+             
+              stmt.setString(1, uname);
+              stmt.setString(2, pwd);
+              
+              ResultSet result=stmt.executeQuery();
+              
+              if(result.next()) {
+            	  System.out.println("login succuss");
+              }else
+              {
+            	  System.out.println("login denied....Please enter correct details of user...");
+              }
+              
+              conn.close();
+	}
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+OUTPUT:
+
+Enter your username
+kapill
+Enter your password
+kapil123
+login denied....Please enter correct details of user...
+
+
+
+
+
+Enter your username
+Kapil
+Enter your password
+Kapil123
+login succuss
