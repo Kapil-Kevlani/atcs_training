@@ -1,0 +1,195 @@
+1.	Create a Product class write a query add and update and delete products.
+
+
+package com.JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Product {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		Class.forName("org.postgresql.Driver");
+		
+		Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/niharika1","postgres","niharika");
+		
+		Statement stmt = conn.createStatement();
+		
+		boolean result=stmt.execute("create table stud(sid int , sname varchar(10), sclass int)");
+		int resul=stmt.executeUpdate("insert into stud values(101,'Niharika',11)");
+		int result1=stmt.executeUpdate("insert into stud values(102,'Mansi',10)");
+		int result2=stmt.executeUpdate("insert into stud values(103,'Mannat',12)");
+		int res=stmt.executeUpdate("update stud set sname='Manish' where sid=103");
+		int del=stmt.executeUpdate("delete from stud;");
+		
+		conn.close();
+		
+		System.out.println("Table is created:"+result);
+		System.out.println("Value-1  inserted"+resul);
+		System.out.println("Value-2  inserted"+result1);
+		System.out.println("Value-3  inserted"+result2);
+		System.out.println("Updated Value :"+res);
+		System.out.println("Delete stud:"+del);
+		
+	}
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+OUTPUT:
+
+-----------------------------------------------------------
+•	Create Table:
+Table is created : false
+
+niharika1=# select * from stud;
+ sid | sname | sclass
+-----+-------+--------
+(0 rows)
+-----------------------------------------------------------
+
+
+-----------------------------------------------------------
+•	Insert values in table :
+Value-1  inserted1
+Value-2  inserted1
+Value-3  inserted1
+
+niharika1=# select * from stud;
+ sid |  sname   | sclass
+-----+----------+--------
+ 101 | Niharika |     11
+ 102 | Mansi    |     10
+ 103 | Mannat   |     12
+(3 rows)
+-----------------------------------------------------------
+
+
+-----------------------------------------------------------
+•	Update value in table
+    Updated Value :1
+
+niharika1=# select * from stud;
+ sid |  sname   | sclass
+-----+----------+--------
+ 101 | Niharika |     11
+ 102 | Mansi    |     10
+ 103 | Manish   |     12
+(3 rows)
+------------------------------------------------------------
+
+
+-------------------------------------------------------------
+•	Delete table
+Delete stud:3
+
+niharika1=# select * from stud;
+ sid | sname | sclass
+-----+-------+--------
+(0 rows)
+-----------------------------------------------------------------
+
+
+
+
+
+=====================================================================================================================================
+
+2.    CRUD operations on Pizza add,update,delete,create
+
+
+
+package com.JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Pizza {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		Class.forName("org.postgresql.Driver");
+		
+		Connection conn=DriverManager.getConnection("jdbc:postgresql://localhost/niharika1","postgres", "niharika");
+		
+		Statement stmt = conn.createStatement();
+		
+		boolean res1=stmt.execute("create table Pizza(pizza_type varchar(20),pizza_size varchar(10),pizza_rate int)");
+		int res2=stmt.executeUpdate("insert into Pizza values('Cheese Pizza','Small',100)");
+		int res3=stmt.executeUpdate("insert into Pizza values('Corn Pizza','Medium',200)");
+		int res4=stmt.executeUpdate("insert into Pizza values('Vegetable Pizza','Large',400)");
+		
+		int res5=stmt.executeUpdate("update Pizza set pizza_type='Double Cheese Pizza' where pizza_size='Large'");
+		
+		int res6=stmt.executeUpdate("delete from pizza");
+		conn.close();
+		
+		System.out.println("Table is created:"+res1);
+		System.out.println("Value-1 inserted :"+res2);
+		System.out.println("Value-2 inserted :"+res3);
+		System.out.println("Value-3 inserted :"+res4);
+		System.out.println("Update Value :"+res5);
+		System.out.println("Delete from table:"+res6);
+	}
+
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+OUTPUT
+
+
+-------------------------------------------------------
+• Create a Table
+Table is created:false
+
+niharika1=# select * from pizza;
+ pizza_type | pizza_size | pizza_rate
+------------+------------+------------
+(0 rows)
+--------------------------------------------------------
+
+
+----------------------------------------------------------
+• Insert Values in Table
+Value-1 inserted :1
+Value-2 inserted :1
+Value-3 inserted :1
+
+kapill=# select * from pizza;
+   pizza_type    | pizza_size | pizza_rate
+-----------------+------------+------------
+ Cheese Pizza    | Small      |        100
+ Corn Pizza      | Medium     |        200
+ Vegetable Pizza | Large      |        400
+(3 rows)
+------------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+•   Update Table
+Update Value :1
+
+kapill=# select * from pizza;
+     pizza_type      | pizza_size | pizza_rate
+---------------------+------------+------------
+ Cheese Pizza        | Small      |        100
+ Corn Pizza          | Medium     |        200
+ Double Cheese Pizza | Large      |        400
+(3 rows)
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+• Delete From Table
+Delete from table:3
+
+kapill=# select * from pizza;
+ pizza_type | pizza_size | pizza_rate
+------------+------------+------------
+(0 rows)
+--------------------------------------------------------------------
+
