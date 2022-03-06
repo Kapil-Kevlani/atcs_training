@@ -1,0 +1,274 @@
+1.	Create a table Student add student details modify the all the table columns by using commands.
+
+
+Perform All Operations ......
+
+----------------------------------------------------------------
+•	Create Database
+            o	Query- create database Student;
+----------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+•	Connect Database
+                 postgres=#  \c student;
+                  You are now connected to database "student" as user "postgres".
+---------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------
+•	Create Table
+           student=# create table student(sid int , sname varchar(10),sclass int ,sadd varchar(20));
+           CREATE TABLE
+-----------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------
+•	Show Description
+
+student=# \d student;
+                     Table "public.student"
+ Column |         Type          | Collation | Nullable | Default
+--------+-----------------------+-----------+----------+---------
+ sid    | integer               |           |          |
+ sname  | character varying(10) |           |          |
+ sclass | integer               |           |          |
+ sadd   | character varying(20) |           |          |
+ -------------------------------------------------------------------------------------
+ 
+ 
+ -------------------------------------------------------------------------------------
+•	Modify Table
+student=# alter table student alter column sadd type varchar(30);
+ALTER TABLE
+student=# \d student;
+                     Table "public.student"
+ Column |         Type          | Collation | Nullable | Default
+--------+-----------------------+-----------+----------+---------
+ sid    | integer               |           |          |
+ sname  | character varying(10) |           |          |
+ sclass | integer               |           |          |
+ sadd   | character varying(30) |           |          |
+ ----------------------------------------------------------------------------------------
+ 
+ 
+-------------------------------------------------------------------------------------
+•	Add Column
+
+student=# alter table student add column smarks int;
+ALTER TABLE
+student=# \d student;
+                     Table "public.student"
+ Column |         Type          | Collation | Nullable | Default
+--------+-----------------------+-----------+----------+---------
+ sid    | integer               |           |          |
+ sname  | character varying(10) |           |          |
+ sclass | integer               |           |          |
+ sadd   | character varying(20) |           |          |
+ smarks | integer               |           |          |
+ ------------------------------------------------------------------------------------
+ 
+ 
+ -----------------------------------------------------------------------------------
+•	Drop Column
+student=# alter table student drop smarks;
+ALTER TABLE
+student=# \d student;
+                     Table "public.student"
+ Column |         Type          | Collation | Nullable | Default
+--------+-----------------------+-----------+----------+---------
+ sid    | integer               |           |          |
+ sname  | character varying(10) |           |          |
+ sclass | integer               |           |          |
+ sadd   | character varying(20) |           |          |
+ --------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------
+•	Insert values
+student=# insert into student values('101','Niharika',12,'Jaipur');
+INSERT 0 1
+student=# insert into student values('102','Manish',12,'Barsana');
+INSERT 0 1
+student=# insert into student values('103','Dev',11,'Ahemdabad');
+INSERT 0 1
+student=# insert into student values('104','Mansi',10,'UP');
+INSERT 0 1
+student=# insert into student values('105','Nandini',8,'khatu');
+INSERT 0 1
+-------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+•	Select Statement 
+student=# select * from student;
+ sid |  sname   | sclass |   sadd
+-----+----------+--------+-----------
+ 101 | Kapil |     12 | Jaipur
+ 102 | Manish   |     12 | Barsana
+ 103 | Dev      |     11 | Ahemdabad
+ 104 | Mansi    |     10 | UP
+ 105 | Nandini  |      8 | khatu
+(5 rows)
+---------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+•	Update Command
+student=# update student set sname='Mannat' where sid=102;
+UPDATE 1
+student=# select * from student;
+ sid |  sname   | sclass |   sadd
+-----+----------+--------+-----------
+ 101 | Kapil |     12 | Jaipur
+ 103 | Dev      |     11 | Ahemdabad
+ 104 | Mansi    |     10 | UP
+ 105 | Nandini  |      8 | khatu
+ 102 | Mannat   |     12 | Barsana
+(5 rows)
+-----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------
+•	Delete  Command
+student=# delete from student;
+DELETE 5
+---------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------
+•	Truncate
+student=# truncate table student;
+TRUNCATE TABLE
+student=# select * from student;
+ sid | sname | sclass | sadd
+-----+-------+--------+------
+(0 rows)
+-----------------------------------------------------------------------------
+
+
+============================================================================================================================================================
+	
+2.	Create a tables Manager and Employee add details of both tables and join by using equijoin.
+
+
+
+------------------------------------------------------------------------------------
+•	Create database
+postgres=# create database niharika;
+CREATE DATABASE
+-------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------
+•	Connect Database
+postgres=# \c niharika
+You are now connected to database "niharika" as user "postgres".
+--------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------
+•	Create table Employee
+niharika=# create table employee(emp_id int ,emp_name varchar(10),emp_sal int,manager_id int , department varchar(20));
+CREATE TABLE
+niharika=# \d employee;
+                       Table "public.employee"
+   Column   |         Type          | Collation | Nullable | Default
+------------+-----------------------+-----------+----------+---------
+ emp_id     | integer               |           |          |
+ emp_name   | character varying(10) |           |          |
+ emp_sal    | integer               |           |          |
+ manager_id | integer               |           |          |
+ department | character varying(20) |           |          |
+ --------------------------------------------------------------------------------------------
+ 
+ 
+ -----------------------------------------------------------------------------------------
+•	Insert Values in Employee
+niharika=# insert into employee values(1001,'Niharika',20000,4568,'Java');
+INSERT 0 1
+niharika=# insert into employee values(1002,'Riya',2000,4692,'Data Science');
+INSERT 0 1
+niharika=# insert into employee values(1003,'Manish',400000,4568,'Salesforce');
+INSERT 0 1
+niharika=# insert into employee values(1004,'Ritika',50000,4512,'Java');
+INSERT 0 1
+niharika=# insert into employee values(1005,'Dev',7000,4692,'Data Science');
+INSERT 0 1
+niharika=# insert into employee values(1006,'Jash',10000,4512,'Salesforce');
+INSERT 0 1
+---------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------
+•	Employee Table
+niharika=# select * from employee;
+ emp_id | emp_name | emp_sal | manager_id |  department
+--------+----------+---------+------------+--------------
+   1001 | Kapil |   20000 |       4568 | Java
+   1002 | Riya     |    2000 |       4692 | Data Science
+   1003 | Manish   |  400000 |       4568 | Salesforce
+   1004 | Ritika   |   50000 |       4512 | Java
+   1005 | Dev      |    7000 |       4692 | Data Science
+   1006 | Jash     |   10000 |       4512 | Salesforce
+(6 rows)
+----------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------
+•	Create Table Manager
+niharika=# create table manager(manager_id int , manager_dept varchar(20));
+CREATE TABLE
+niharika=# \d manager;
+                        Table "public.manager"
+    Column    |         Type          | Collation | Nullable | Default
+--------------+-----------------------+-----------+----------+---------
+ manager_id   | integer               |           |          |
+ manager_dept | character varying(20) |           |          |
+ ----------------------------------------------------------------------------------------------
+ 
+ 
+ ----------------------------------------------------------------------------------------------
+•	Insert values in Manager
+                                        ^
+niharika=# insert into manager values(4568,'Java');
+INSERT 0 1
+niharika=# insert into manager values(4692 , 'Data Science');
+INSERT 0 1
+niharika=# insert into manager values(4512 , 'Salesforce');
+INSERT 0 1
+niharika=# insert into manager values(4050 , 'Web development');
+INSERT 0 1
+-----------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------
+•	Manager Table
+niharika=# select * from manager;
+ manager_id |  manager_dept
+------------+-----------------
+       4568 | Java
+       4692 | Data Science
+       4512 | Salesforce
+       4050 | Web development
+(4 rows)
+---------------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------------------
+•	Perform EquiJoin to join manager and employee tables
+
+niharika=# select e.emp_id,e.emp_name,e.emp_sal,e.manager_id,e.department,m.manager_id,m.manager_dept from employee e,manager m where e.manager_id=m.manager_id;
+ emp_id | emp_name | emp_sal | manager_id |  department  | manager_id | manager_dept
+--------+----------+---------+------------+--------------+------------+--------------
+   1003 | Manish   |  400000 |       4568 | Salesforce   |       4568 | Java
+   1001 | Kapil |   20000 |       4568 | Java         |       4568 | Java
+   1005 | Dev      |    7000 |       4692 | Data Science |       4692 | Data Science
+   1002 | Riya     |    2000 |       4692 | Data Science |       4692 | Data Science
+   1006 | Jash     |   10000 |       4512 | Salesforce   |       4512 | Salesforce
+   1004 | Ritika   |   50000 |       4512 | Java         |       4512 | Salesforce
+(6 rows)
+-------------------------------------------------------------------------------------------------------------------
+     
